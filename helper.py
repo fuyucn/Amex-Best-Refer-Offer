@@ -23,6 +23,16 @@ def loadLink(filename):
     lines = text_file.read().split(',')
     return lines[0]
 
+def loadTargets(filename):
+    lines = []
+    tragets = []
+
+    text_file = open(filename, "r")
+    lines = text_file.readlines()
+    for line in lines:
+        target = line.split(",")
+        tragets.append({"card": target[0], "target":target[1].replace('\n','').replace(" ", "")})
+    return tragets
 
 def getDriver(browser):
     chrome_options = webdriver.ChromeOptions()

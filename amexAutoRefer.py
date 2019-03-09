@@ -3,7 +3,7 @@ import sys
 import time
 from selenium import webdriver
 from datetime import datetime
-from helper import loadConfig, loadLink, getDriver, waitForReferLinkPop, openAllReferList, findCardAndVerifyOffer, checkTargetOffer
+from helper import loadConfig, loadLink, getDriver, waitForReferLinkPop, openAllReferList, findCardAndVerifyOffer, checkTargetOffer, loadTargets
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.action_chains import ActionChains
 
@@ -64,8 +64,10 @@ def main(argv):
     card = argv[1] if len(argv) >= 2 else ''
     best_offer = argv[1] if len(argv) >= 2 else ''
 
-    card = "Green Card"
-    best_offer = 25000
+    targets = loadTargets("./config/config.txt")
+
+    card = targets[0]["card"]
+    best_offer = targets[0]["target"]
 
     findBestOffer(loadLink("./config/referlink.txt"),
                   card, best_offer, browser)
