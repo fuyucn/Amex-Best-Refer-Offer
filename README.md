@@ -1,4 +1,6 @@
-# amexAutoRefer
+# Amex Best Refer Offer
+
+Help you find best refer offer for Amex
 
 python 3.7
 
